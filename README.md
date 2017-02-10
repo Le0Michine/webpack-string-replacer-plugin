@@ -21,7 +21,7 @@ plugins: [
 
 /*
   options: {
-    files: array assets names to update, by default all assets will be updated
+    assets: array of assets names to update, by default all the assets will be updated
     replaceValue: regex or string to replace, this option is mandatory
     newValue: new value to insert, by default is ''
   }

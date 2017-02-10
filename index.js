@@ -1,6 +1,6 @@
 function StringReplacerPlugin(options) {
-    const { files, replaceValue, newValue } = options || {};
-    this.files = files;
+    const { assets, replaceValue, newValue } = options || {};
+    this.assets = assets;
     this.replaceValue = replaceValue;
     this.newValue = newValue || '';
     if (!replace) {
@@ -9,7 +9,7 @@ function StringReplacerPlugin(options) {
 }
 
 StringReplacerPlugin.prototype.apply = function(compiler) {
-    const files = this.files;
+    const files = this.assets;
     const replaceValue = this.replaceValue;
     const newValue = this.newValue;
 
