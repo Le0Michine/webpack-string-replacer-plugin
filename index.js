@@ -1,11 +1,15 @@
 function StringReplacerPlugin(options) {
     const { assets, replaceValue, newValue } = options || {};
+    if (assets && assets.constructor !== Array) {
+        throw new Error(`StringReplacerPlugin: assets should be an array or undefined, actual value is: ${assets}`);
+    }
+    if (!replaceValue) {
+        throw new Error(`StringReplacerPlugin: replaceValue shoudn't be undefined`);
+    }
+
     this.assets = assets;
     this.replaceValue = replaceValue;
     this.newValue = newValue || '';
-    if (!replace) {
-        throw new Error('value to replace should be provided');
-    }
 }
 
 StringReplacerPlugin.prototype.apply = function(compiler) {
@@ -22,10 +26,10 @@ StringReplacerPlugin.prototype.apply = function(compiler) {
                 const updatedContent = content.replace(replaceValue, newValue);
                 compilation.assets[name] = { source: () => updatedContent, size: () => updatedContent.length };
             } else {
-                console.log(`\nunable to read asset ${name}, probably it is not a text file`);
+                console.log(`\nStringReplacerPlugin: unable to read asset ${name}`);
             }
-            callback();
         });
+        callback();
     });
 };
 

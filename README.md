@@ -1,6 +1,6 @@
 # webpack-string-replacer-plugin
 
-A plugin for replacing string value in assets.
+A plugin for replacing string value in assets. It processes assets right before emitting so you can treat this plugin as a postprocessor.
 
 Installation
 
@@ -23,7 +23,9 @@ plugins: [
   options: {
     assets: array of assets names to update, by default all the assets will be updated
     replaceValue: regex or string to replace, this option is mandatory
-    newValue: new value to insert, by default is ''
+    newValue: new value to insert or function, by default is ''
   }
+
 */
 ```
+PS. Under the hood it uses [String.prototype.replace()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace) method with `replaceValue` and `newValue` as parameters.

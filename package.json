@@ -1,6 +1,6 @@
 {
   "name": "webpack-string-replacer-plugin",
-  "version": "1.0.0-beta-1",
+  "version": "1.0.0-beta-7",
   "description": "Replaces strings in assets according to provided regex or string",
   "repository": {
     "type": "git",
@@ -13,6 +13,6 @@
     "regex"
   ],
   "author": "Lev Mishin",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {}
 }
